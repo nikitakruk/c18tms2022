@@ -3,8 +3,8 @@ public class HomeWork {
         System.out.println(sum(150, 200));
         System.out.println(sum(Integer.MAX_VALUE, Integer.MAX_VALUE));
         System.out.println(max(10, 10));
-        System.out.println(average(new int[]{2, 2, 3, 4, 5}));
-        System.out.println(max(new int[]{1, 2, 3, 4, 5, 100, 99}));
+        System.out.println(average(new int[]{1, 2, 3, 4, 5}));
+        System.out.println(max(new int[]{1, 2, 10, 3}));
         System.out.println(calculateHypotenuse(12, 16));
     }
 
@@ -25,13 +25,22 @@ public class HomeWork {
     }
 
     public static double average(int[] array) {
-
-        return 0;
+        int average = array[1];
+        for (int i = 0; i < array.length; i++) {
+            average += array[i] / array.length;
+        }
+        return average;
     }
 
     public static int max(int[] array) {
+        int max = array[0];
+        for (int currentValue : array) {
+            if (currentValue > max) {
+                max = currentValue;
+            }
+        }
 
-        return 0;
+        return max;
     }
 
     public static double calculateHypotenuse(int a, int b) {
