@@ -1,6 +1,6 @@
 public class HomeWork {
     public static void main(String[] args) {
-        System.out.println(sum(150, 200));
+        System.out.println(sum(3, 3));
         System.out.println(sum(Integer.MAX_VALUE, Integer.MAX_VALUE));
         System.out.println(max(10, 10));
         System.out.println(average(new int[]{1, 2, 3, 4, 5}));
@@ -18,16 +18,13 @@ public class HomeWork {
     }
 
     public static int max(int a, int b) {
-        if (a >= b) {
-            return a;
-        } else
-            return b;
+        return Math.max(a, b);
     }
 
     public static double average(int[] array) {
         int average = array[1];
-        for (int i = 0; i < array.length; i++) {
-            average += array[i] / array.length;
+        for (int j : array) {
+            average += j / array.length;
         }
         return average;
     }
@@ -45,9 +42,8 @@ public class HomeWork {
 
     public static double calculateHypotenuse(int a, int b) {
         int c = (int) (Math.pow(a, 2) + Math.pow(b, 2));
-        int d = (int) Math.sqrt(c);
 
-        return d;
+        return (int) Math.sqrt(c);
     }
 }
 
