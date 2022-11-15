@@ -8,13 +8,13 @@ public class HomeWork2 {
         //  printArray();
         //  System.out.println(operation(7));
         //System.out.println(operation(0));
-        //    System.out.println(calculateCountOfOddElementsInMatrix(new int[]{1, 2, 3, 4, 5, 6}));
-        countDevs(103);
-        countDevs(12);
-//        foobar(6);
-//        foobar(10);
-//        foobar(15);
-        //       printPrimeNumbers();
+        // System.out.println(calculateCountOfOddElementsInMatrix(new int[]{1, 2, 3, 4, 5, 6}));
+        //countDevs(4);
+        //countDevs(3);
+        // foobar(7);
+        //foobar(10);
+        //foobar(15);
+        printPrimeNumbers();
     }
 
 
@@ -98,8 +98,46 @@ public class HomeWork2 {
         int c100 = count % 100;
         if (c10 == 1 && c100 != 11) {
             System.out.println("программист");
-        } else if ((c10 >= 2 && c10 <= 4) && (c100 >= 12 && c100 <= 14)) {
+        } else if ((c10 >= 2 && c10 <= 4) && !(c100 >= 12 && c100 <= 14)) {
             System.out.println("программиста");
+        } else {
+            System.out.println("программистов");
         }
+    }
+
+    /**
+     * Метод должен выводить разные строки в консоли в зависимости от некоторых условий:
+     * - если остаток от деления на 3 равен нулю - выведите "foo" (example of number - 6)
+     * - если остаток от деления на 5 равен нулю - вывести "bar" (example of number - 10)
+     * - если остаток от деления на 3 и 5 равен нулю 0 ,то вывести "foobar" (example of number - 15)
+     */
+    private static void foobar(int number) {
+        if (number % 3 == 0) {
+            System.out.print("foo");
+        }
+        if (number % 5 == 0) {
+            System.out.println("bar");
+        }
+    }
+
+    //Задача со звездочкой!
+    //Метод должен печатать все простые числа <1000
+    private static void printPrimeNumbers() {
+        int count = 0;
+        for (int i = 2; i < 1000; i++) {
+            boolean isPrimeNumber = true;
+            for (int j = 2; j * j <= i; j++) {
+                if (i % j == 0) {
+                    isPrimeNumber = false;
+                    break;
+                }
+            }
+            if (isPrimeNumber) {
+                count++;
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+        System.out.println(count);
     }
 }
