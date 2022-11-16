@@ -7,6 +7,7 @@ public class HomeWork {
         //amoeba();
         //numberOfDigits();
         //System.out.println (getZodiacName(7,15));
+        //System.out.println(summ(3435, 5953));
     }
 
 
@@ -96,4 +97,11 @@ public class HomeWork {
         }
         return result;
     }
+
+    //        5) Напишите реализацию метода summ(int a, int b), вычисляющий a*b, не пользуясь операцией
+//        умножения, где a и b целые числа, вызовите метод summ в методе main и распечатайте на консоль.
+    private static int summ(int a, int b) {
+        return Math.multiplyExact(a, b);
+    }
+    
 }
