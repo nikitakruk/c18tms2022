@@ -13,7 +13,6 @@ public class HomeWork {
     private static void printLetters() {
         for (char i = 'a'; i <= 'z'; i++) {
             System.out.print(i + " ");
-            ;
         }
     }
 
