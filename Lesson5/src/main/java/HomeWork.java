@@ -1,9 +1,11 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class HomeWork {
     public static void main(String[] args) {
         //dayOfTheWeek();
-        amoeba();
+        //amoeba();
+        numberOfDigits();
     }
 
 
@@ -35,6 +37,29 @@ public class HomeWork {
             numberOfAmoebas = numberOfAmoebas * 2;
             hours += 3;
             System.out.println(numberOfAmoebas + " амёбы через " + hours + " часов");
+        }
+    }
+    // В переменную записываем число.
+//        Надо вывести на экран сколько в этом числе цифр и положительное оно или отрицательное.
+//        Например, введите число: 5
+//        "5 - это положительное число, количество цифр = 1"
+
+    private static void numberOfDigits() {
+        while (true) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Введите число: ");
+            int value = scanner.nextInt();
+            int i = (int) Math.ceil(Math.log10(Math.abs(value)));
+            if (value > 0) {
+                System.out.println(value + " - это положительное число, количество цифр = " + i);
+                break;
+            } else if (value < 0) {
+                System.out.println(value + " - это отрицательное число, количество цифр = " + i);
+                break;
+            } else {
+                System.out.println("Ошибка");
+                continue;
+            }
         }
     }
 }
