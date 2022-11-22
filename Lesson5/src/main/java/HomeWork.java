@@ -7,7 +7,7 @@ public class HomeWork {
         //amoeba();
         //numberOfDigits();
         //System.out.println (getZodiacName(7,15));
-        //System.out.println(summ(3435, 5953));
+        //System.out.println(summ(1, 10000));
     }
 
 
@@ -18,14 +18,14 @@ public class HomeWork {
 
     private static void dayOfTheWeek() {
         Random random = new Random();
-        int randomPeriod = random.nextInt(8 - 1) + 1;
-        // System.out.println(randomPeriod);
+        int randomPeriod = random.nextInt(7) + 1;
+        //System.out.println(randomPeriod);
         switch (randomPeriod) {
-            case (1) -> System.out.println("Понедельник");
-            case (2) -> System.out.println("Вторник");
-            case (3) -> System.out.println("Среда");
-            case (4) -> System.out.println("Четверг");
-            case (5) -> System.out.println("пятница");
+            case 1 -> System.out.println("Понедельник");
+            case 2 -> System.out.println("Вторник");
+            case 3 -> System.out.println("Среда");
+            case 4 -> System.out.println("Четверг");
+            case 5 -> System.out.println("пятница");
             default -> System.out.println("Выходной");
         }
     }
@@ -47,22 +47,18 @@ public class HomeWork {
 //        "5 - это положительное число, количество цифр = 1"
 
     private static void numberOfDigits() {
-        while (true) {
             Scanner scanner = new Scanner(System.in);
             System.out.print("Введите число: ");
             int number = scanner.nextInt();
             int count = (int) Math.ceil(Math.log10(Math.abs(number)));
             if (number > 0) {
                 System.out.println(number + " - это положительное число, количество цифр = " + count);
-                break;
             } else if (number < 0) {
                 System.out.println(number + " - это отрицательное число, количество цифр = " + count);
-                break;
             } else {
                 System.out.println("Ошибка");
-                continue;
+
             }
-        }
     }
     //4) Дано 2 числа, день и месяц рождения. Написать программу, которая определяет знак зодиака человека.
 
@@ -103,5 +99,19 @@ public class HomeWork {
     private static int summ(int a, int b) {
         return Math.multiplyExact(a, b);
     }
-    
 }
+//        6) Дан двухмерный массив размерностью 4 на 4, необходимо нарисовать четыре треугольника вида
+
+//        a)                  b)
+//              *        *
+//            * *        * *
+//          * * *        * * *
+//        * * * *        * * * *
+//
+//        c)                  d)
+//        * * * *        * * * *
+//          * * *        * * *
+//            * *        * *
+//              *        *
+
+
