@@ -7,27 +7,6 @@ public class User {
     int age = 18;
     String gender = "Male";
 
-
-    @Deprecated
-    public String getFullName() {
-        this.fullName = fullName;
-        return fullName;
-    }
-
-    public int getAge() {
-        Random random = new Random();
-        this.age = age;
-        int randomAge = age + random.nextInt(50);
-        return randomAge;
-    }
-
-    public String user() {
-        this.fullName = fullName;
-        this.age = age;
-        this.gender = gender;
-        return fullName + " " + age + " " + gender;
-    }
-
     public User() {
     }
 
@@ -45,9 +24,35 @@ public class User {
         this.gender = gender;
     }
 
-    //User lena = new User("Elena");
+    @Deprecated
+    public String getFullName() {
+        this.fullName = fullName;
+        return fullName;
+    }
+
+    public int increasingAge() {
+        Random random = new Random();
+        this.age = age;
+        int randomAge = age + random.nextInt(50);
+        return randomAge;
+    }
+
+    public String user() {
+        this.fullName = fullName;
+        this.age = age;
+        this.gender = gender;
+        return fullName + " " + age + " " + gender;
+    }
 
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "fullName='" + fullName + '\'' +
+                ", age=" + age +
+                ", gender='" + gender + '\'' +
+                '}';
+    }
 }
 
 
