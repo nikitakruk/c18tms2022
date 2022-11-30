@@ -8,7 +8,7 @@ public class Computer {
     private String processor = "intel";
     private String ram = "8GB";
     private String hardDrive = "1TB";
-    private int workCycle = 5;
+    private int workCycle = 2;
     private final Random random = new Random();
     private final Scanner scanner = new Scanner(System.in);
     private boolean burned;
