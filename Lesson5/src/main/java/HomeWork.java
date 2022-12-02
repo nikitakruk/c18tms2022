@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -8,6 +9,11 @@ public class HomeWork {
         //numberOfDigits();
         //System.out.println (getZodiacName(7,15));
         //System.out.println(summ(1, 10000));
+        // reverseOrder();
+        // maximumElement();
+        // oddIndex();
+        // changeTheMaximumToTheZeroElement();
+        matrixTransposition();
     }
 
 
@@ -47,18 +53,18 @@ public class HomeWork {
 //        "5 - это положительное число, количество цифр = 1"
 
     private static void numberOfDigits() {
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Введите число: ");
-            int number = scanner.nextInt();
-            int count = (int) Math.ceil(Math.log10(Math.abs(number)));
-            if (number > 0) {
-                System.out.println(number + " - это положительное число, количество цифр = " + count);
-            } else if (number < 0) {
-                System.out.println(number + " - это отрицательное число, количество цифр = " + count);
-            } else {
-                System.out.println("Ошибка");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите число: ");
+        int number = scanner.nextInt();
+        int count = (int) Math.ceil(Math.log10(Math.abs(number)));
+        if (number > 0) {
+            System.out.println(number + " - это положительное число, количество цифр = " + count);
+        } else if (number < 0) {
+            System.out.println(number + " - это отрицательное число, количество цифр = " + count);
+        } else {
+            System.out.println("Ошибка");
 
-            }
+        }
     }
     //4) Дано 2 числа, день и месяц рождения. Написать программу, которая определяет знак зодиака человека.
 
@@ -99,19 +105,135 @@ public class HomeWork {
     private static int summ(int a, int b) {
         return Math.multiplyExact(a, b);
     }
-}
-//        6) Дан двухмерный массив размерностью 4 на 4, необходимо нарисовать четыре треугольника вида
 
-//        a)                  b)
-//              *        *
-//            * *        * *
-//          * * *        * * *
-//        * * * *        * * * *
-//
-//        c)                  d)
-//        * * * *        * * * *
-//          * * *        * * *
-//            * *        * *
-//              *        *
+    //        7) Создайте массив из всех нечётных чисел от 1 до 100, выведите его на экран в строку,
+//        а затем этот же массив выведите на экран тоже в строку, но в обратном порядке (99 97 95 93 ... 7 5 3 1).
+    public static void reverseOrder() {
+        int[] massive = new int[50];
+        for (int i = 1, j = 0; i < 100; i += 2, j++) {
+            massive[j] = i;
+        }
+        System.out.println(Arrays.toString(massive));
+        for (int i = massive.length - 1; i >= 0; i--) {
+            System.out.print(massive[i] + " ");
+        }
+    }
+
+    //        8) Создайте массив из int[] mass = new int[12]; Рандомно заполните его значениями от 0 до 15.
+//        Определите какой элемент является в этом массиве максимальным и сообщите индекс его последнего вхождения в массив.
+//        Пример: {3,4,5,62,7,8,4,-5,7,62,5,1} Максимальный элемент 62, индекс его последнего вхождения в массив = 10
+    public static void maximumElement() {
+        int[] massive = new int[12];
+        Random random = new Random();
+        for (int i = 0; i < massive.length; i++) {
+            massive[i] = random.nextInt(100);
+        }
+        System.out.println(Arrays.toString(massive));
+        findingMax(massive);
+        System.out.println();
+    }
+
+    public static void findingMax(int[] massive) {
+        if (massive != null && massive.length > 0) {
+            int currentMax = Integer.MIN_VALUE;
+            int maxIndex = 0;
+            for (int i = 1; i < massive.length; i++) {
+                if (massive[i] >= currentMax) {
+                    currentMax = massive[i];
+                    maxIndex = i;
+                }
+            }
+            System.out.println("Максимальный эелемент " + currentMax + ", индекс его последнего вхождения в массив = " + (maxIndex));
+        } else {
+            System.out.println("");
+        }
+    }
+
+    //        9) Создайте массив размера 20, заполните его случайными целыми числами из отрезка от 0 до 20.
+//        Выведите массив на экран в строку. Замените каждый элемент с нечётным индексом на ноль.
+//        Снова выведете массив на экран на отдельной строке.
+    public static void oddIndex() {
+        int[] massive = new int[20];
+        Random random = new Random();
+        for (int i = 0; i < massive.length; i++) {
+            massive[i] = random.nextInt(21);
+        }
+        System.out.println(Arrays.toString(massive));
+        for (int i = 0; i < massive.length; i++) {
+            if (i % 2 != 0) {
+                massive[i] = 0;
+            }
+        }
+        System.out.println(Arrays.toString(massive));
+    }
+
+    //        10) Найти максимальный элемент в массиве {4,5,0,23,77,0,8,9,101,2} и поменять его местами с нулевым элементом
+    public static void changeTheMaximumToTheZeroElement() {
+        int[] massive = {4, 5, 0, 23, 77, 0, 8, 9, 101, 2};
+        int currentMax = Integer.MIN_VALUE;
+        int maxPlace = 0;
+        for (int i = 0; i < massive.length; i++) {
+            if (massive[i] > currentMax) {
+                currentMax = massive[i];
+                maxPlace = i;
+            }
+        }
+        massive[maxPlace] = massive[0];
+        massive[0] = currentMax;
+        System.out.println(Arrays.toString(massive));
+    }
+
+    //        12) Создаём квадратную матрицу, размер вводим с клавиатуры.
+//        Заполняем случайными числами в диапазоне от 0 до 50. И выводим на консоль(в виде матрицы).
+//        Далее необходимо транспонировать матрицу(1 столбец станет 1-й строкой, 2-й столбец - 2-й строкой и т. д.)
+//        Пример:
+//          1 2 3 4      1 6 3 1
+//          6 7 8 9      2 7 3 5
+//          3 3 4 5      3 8 4 6
+//          1 5 6 7      4 9 5 7
+    public static void matrixTransposition() {
+        Random random = new Random();
+        System.out.println("Введите размер матрицы (целое положительное число)");
+        Scanner input;
+        int dim;
+        while (true) {
+            input = new Scanner(System.in);
+            if (input.hasNextInt()) {
+                dim = input.nextInt();
+                if (dim > 0) {
+                    break;
+                }
+            }
+            System.out.println("Введите целое положительное число");
+        }
+        int[][] matrix = new int[dim][dim];
+        for (int i = 0; i < dim; i++) {
+            for (int j = 0; j < dim; j++) {
+                matrix[i][j] = random.nextInt(51);
+                System.out.printf("%2d ", matrix[i][j]);
+            }
+            System.out.println();
+        }
+        System.out.println();
+        transpose(matrix);
+    }
+
+    public static void transpose(int[][] matr) {
+        int[][] transposedMatr = new int[matr.length][matr.length];
+        for (int i = 0; i < matr.length; i++) {
+            for (int j = 0; j < matr.length; j++) {
+                transposedMatr[j][i] = matr[i][j];
+            }
+        }
+        for (int i = 0; i < transposedMatr.length; i++) {
+            for (int j = 0; j < transposedMatr.length; j++) {
+                System.out.printf("%2d ", transposedMatr[i][j]);
+            }
+            System.out.println();
+        }
+    }
+}
+
+
 
 
